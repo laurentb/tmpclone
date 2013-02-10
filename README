@@ -1,0 +1,11 @@
+tmpclone clones a source code repository temporarily.
+The goal is to browse a repository quickly, without actually saving it.
+It can also be useful to create a patch.
+
+It is very fast as it uses /tmp (usually in tmpfs)
+and does not fetch the whole history.
+When you are done, the repository is removed.
+
+Usage: tmpclone <repo URL>
+
+For now, only git is supported.

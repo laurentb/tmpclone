@@ -1,5 +1,14 @@
 #!/bin/sh
-set -eu
+set -e
+usage() {
+    echo "Usage: $0 <repo URL>"
+    echo "Clones a source code repository (git only for now) temporarily."
+}
+
+[ -z "$1" ] && usage && exit 2
+[ "$1" = "-h" ] && usage && exit 0
+
+set -u
 GITURL="$1"
 TDIR="$(mktemp -d)"
 cd "${TDIR}"

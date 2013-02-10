@@ -12,7 +12,7 @@ set -u
 GITURL="$1"
 TDIR="$(mktemp -d)"
 cd "${TDIR}"
-git clone "${GITURL}"
+git clone --depth 2 "${GITURL}"
 echo "Starting a new shell. Exiting will remove the directory."
 cd *
 $SHELL

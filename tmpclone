@@ -15,5 +15,5 @@ cd "${TDIR}"
 git clone --depth 2 "${GITURL}"
 echo "Starting a new shell. Exiting will remove the directory."
 cd *
-$SHELL
+$SHELL -l
 rm -rf "${TDIR}"

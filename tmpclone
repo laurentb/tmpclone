@@ -1,18 +1,21 @@
 #!/bin/sh
 set -e
 usage() {
-    echo "Usage: $0 <repo URL>"
+    echo "Usage: $0 <repo URL> [<branch, tag or commit>]"
     echo "Clones a source code repository (git only for now) temporarily."
 }
 
 [ -z "$1" ] && usage && exit 2
 [ "$1" = "-h" ] && usage && exit 0
 
+COMMIT="$2"
 set -u
 GITURL="$1"
+EXTRA=""
 TDIR="$(mktemp -d)"
 cd "${TDIR}"
-git clone --depth 2 "${GITURL}"
+[ -n "${COMMIT}" ] && EXTRA="${EXTRA} --branch ${COMMIT}"
+git clone --depth 2 "${GITURL}" --branch "${COMMIT}" ${EXTRA}
 echo "Starting a new shell. Exiting will remove the directory."
 cd *
 $SHELL -l

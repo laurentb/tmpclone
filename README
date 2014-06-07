@@ -6,6 +6,6 @@ It is very fast as it uses /tmp (usually in tmpfs)
 and does not fetch the whole history.
 When you are done, the repository is removed.
 
-Usage: tmpclone <repo URL>
+Usage: tmpclone <repo URL> [<branch, tag or commit>]
 
 For now, only git is supported.
